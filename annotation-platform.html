@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human-Guided Order Annotation — 2026</title>
+<!-- Created using diagram-design (MIT): https://github.com/luffy666code/diagram-design-skill
+     Project skin: existing warm paper / dark green; local Palatino and Helvetica fonts.
+     Two architecture views keep each diagram within the skill's complexity budget. -->
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eeefeb;color:#263c3d;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}main{max-width:1440px;margin:16px auto;background:#fffefa;padding:28px 36px 20px}header{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid #24685d;padding-bottom:16px;gap:16px}h1{font-family:Palatino,Georgia,serif;font-size:36px;font-weight:400;letter-spacing:-.6px;margin:0}header span{font-size:16px;color:#52645e}section{margin-top:20px}h2{font-size:20px;font-weight:600;margin:0 0 4px}.figure{overflow-x:auto}svg{display:block;width:100%;height:auto}svg text{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;fill:#263c3d}.name{font-size:20px;font-weight:600}.body{font-size:16px}.small{font-size:16px;fill:#52645e}.center{text-anchor:middle}.box{fill:#fffefa;stroke:#7d9187;stroke-width:1.2}.state{fill:#f0f3ee;stroke:#7d9187;stroke-width:1.2}.focus{fill:#eaf3ec;stroke:#24685d;stroke-width:1.6}.flow{fill:none;stroke:#52645e;stroke-width:1.6;marker-end:url(#skill-arrow)}.return{fill:none;stroke:#52645e;stroke-width:1.4;stroke-dasharray:5 4;marker-end:url(#skill-arrow)}.api{fill:none;stroke:#3f6b82;stroke-width:1.6;marker-end:url(#system-arrow-link)}.system-flow{fill:none;stroke:#52645e;stroke-width:1.6;marker-end:url(#system-arrow)}.mask{fill:#fffefa}.accent{fill:#24685d}.line{stroke:#c5ceca;stroke-width:1}footer{border-top:1px solid #c5ceca;margin-top:8px;padding-top:14px;display:flex;justify-content:space-between;gap:16px;font-size:14px;color:#52645e}@media(max-width:760px){main{margin:0;padding:20px 16px}h1{font-size:28px}.figure svg{min-width:1056px}footer{flex-direction:column;gap:6px}}@media print{@page{size:A3 landscape;margin:10mm}body{background:#fffefa}main{max-width:none;margin:0;padding:0}.figure{overflow:visible}.figure svg{min-width:0}*{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+:root{--paper:#fffefa;--machine:#405e73;--machine-fill:#f0f4f7;--model-fill:#e6eef4;--human:#24685d;--human-fill:#e8f2eb;--feedback:#926523}
+.box{fill:var(--machine-fill);stroke:var(--machine)}
+.model{fill:var(--model-fill);stroke:var(--machine);stroke-width:1.6}
+.focus{fill:var(--human-fill);stroke:var(--human)}
+.state{fill:#f2f2ed;stroke:#7d8981}
+.released{fill:#edf4ee;stroke:var(--human);stroke-width:1.2}
+.machine-title{fill:var(--machine)}.human-title{fill:var(--human)}
+.reuse{stroke:var(--human);marker-end:url(#skill-arrow-accent)}
+.correction{stroke:var(--feedback);marker-end:url(#skill-arrow-feedback)}
+.feedback-label{fill:var(--feedback)}.reuse-label{fill:var(--human)}
+.figure{scrollbar-color:#8d9d9b #f2f2ed}.figure:focus-visible{outline:2px solid var(--human);outline-offset:4px}::selection{background:#d5e6df;color:#204e44}
+
+h1{font-family:Helvetica,Arial,sans-serif;font-size:30px;font-weight:600;letter-spacing:-.5px}.drawio-nav{display:flex;flex-wrap:wrap;gap:24px;padding:0 0 16px;margin-bottom:16px;border-bottom:1px solid #c5ceca;font-size:14px}.drawio-nav a{color:#24685d}.figure{background:#f8faf8;border:1px solid #c5ceca;border-radius:5px;padding:12px 0;margin-top:12px}@media print{.drawio-nav{display:none}}</style></head>
+<body><main>
+<header><h1>Human-Guided Order Annotation</h1><span>2026</span></header>
+<section aria-labelledby="skill-heading"><h2 id="skill-heading">Skill creation, review and release</h2>
+<div class="figure" tabindex="0" aria-label="Skill feedback diagram; scroll horizontally on narrow screens.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360 272" role="img" aria-labelledby="skill-title skill-desc">
+<title id="skill-title">Human review guides skill updates</title>
+<desc id="skill-desc">Analysts edit skills directly or with the agent, review trial labels, revise errors, and release versions only after human-reviewed accuracy exceeds 95 percent.</desc>
+<defs>
+<marker id="skill-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#52645e"/></marker>
+<marker id="skill-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#24685d"/></marker>
+<marker id="skill-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#3f6b82"/></marker>
+<marker id="skill-arrow-feedback" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#926523"/></marker></defs>
+<rect width="1360" height="272" fill="#fffefa"/>
+<!-- Connectors precede nodes; every return uses a distinct edge port. -->
+<path class="flow" d="M312 156H380"/><path class="flow" d="M624 156H692"/><path class="flow" d="M972 156H1040"/>
+<path class="return reuse" d="M1160 104V48Q1160 40 1152 40H524Q516 40 516 48V104"/>
+<rect class="mask" x="676" y="12" width="232" height="20"/><text class="small center reuse-label" x="792" y="28">Use released skill</text>
+<path class="return correction" d="M800 208V256Q800 264 792 264H188Q180 264 180 256V208"/>
+<rect class="mask" x="332" y="236" width="312" height="20"/><text class="small center feedback-label" x="488" y="252">Revise skill</text>
+<rect class="focus" x="40" y="104" width="272" height="104" rx="4"/>
+<text class="name human-title" x="56" y="132">Analyst edits skill</text><text class="body" x="56" y="160">Upload rules and examples</text><text class="body" x="56" y="188">Edit directly or ask the agent</text>
+<rect class="model" x="380" y="104" width="244" height="104" rx="4"/>
+<text class="name machine-title" x="396" y="132">pi agent</text><text class="body" x="396" y="160">Apply skill · Label orders</text>
+<rect class="focus" x="692" y="104" width="280" height="104" rx="4"/>
+<text class="name human-title" x="708" y="132">Analyst reviews labels</text><text class="body" x="708" y="160">Check evidence and accuracy</text>
+<rect class="released" x="1040" y="104" width="280" height="104" rx="4"/>
+<text class="name human-title" x="1056" y="132">Release skill version</text><text class="body accent" x="1056" y="160">Human-reviewed accuracy &gt;95%</text>
+
+</svg></div></section>
+<section aria-labelledby="system-heading"><h2 id="system-heading">Platform architecture</h2>
+<div class="figure" tabindex="0" aria-label="Platform architecture; scroll horizontally on narrow screens.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360 248" role="img" aria-labelledby="system-title system-desc">
+<title id="system-title">Order annotation platform architecture</title>
+<desc id="system-desc">An HTML interface sends annotation tasks to FastAPI, which calls pi agent using shared skills, features and retrieved cases, checks outputs, and saves labels and task results.</desc>
+<defs>
+<marker id="system-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#52645e"/></marker>
+<marker id="system-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#24685d"/></marker>
+<marker id="system-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#3f6b82"/></marker>
+</defs>
+<rect width="1360" height="248" fill="#fffefa"/>
+<rect x="360" y="24" width="960" height="208" rx="4" fill="#f5f6f1" stroke="#c5ceca" stroke-width="1"/>
+<text class="small" x="376" y="48">Server</text>
+<path class="api" d="M288 112H392"/><path class="system-flow" d="M640 112H704"/><path class="system-flow" d="M952 112H1016"/>
+<path class="system-flow" d="M828 176V140"/>
+
+<rect class="box" x="40" y="60" width="248" height="80" rx="4"/>
+<text class="name" x="56" y="88">HTML interface</text><text class="body" x="56" y="116">Tasks · Skills · Review</text>
+<rect class="box" x="392" y="60" width="248" height="80" rx="4"/>
+<text class="name" x="408" y="88">FastAPI / Python</text><text class="body" x="408" y="116">Prepare context and batches</text>
+<rect class="model" x="704" y="60" width="248" height="80" rx="4"/>
+<text class="name machine-title" x="720" y="88">pi agent harness</text><text class="body" x="720" y="116">Skills · Tools · LLMs</text>
+<rect class="box" x="1016" y="60" width="280" height="80" rx="4"/>
+<text class="name" x="1032" y="88">Results</text><text class="body" x="1032" y="116">Labels · Excel · Task links</text>
+<rect class="state" x="704" y="176" width="592" height="40" rx="4"/>
+<text class="body" x="720" y="204">Skills · Order features · RAG cases · OCR / vision</text>
+<text class="small" x="40" y="200">Inputs: Order IDs · CSV / XLSX / SQL · Images</text>
+</svg></div></section>
+<footer><span>HTML / CSS / JS · Python · FastAPI · pi agent · RAG</span><span>HBase · Doris · SQLite · Object storage · Docker · SSO</span></footer>
+<p style="margin:12px 0 0;font-size:14px;color:#52645e">20 analysts · ~5,000 orders per day</p>
+</main></body></html>
